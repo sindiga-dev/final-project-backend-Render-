@@ -1,7 +1,7 @@
 databases:
-  - name: bbcaredb
-    databaseName: bbcaredb
-    user: bbcaredb_user
+  - name: Butterfly peak
+    databaseName: butterfly_peak
+    user: butterfly_peak_user
     plan: free
 
 services:
@@ -10,11 +10,13 @@ services:
     name: bbcare
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "bundle exec rails server"
     envVars:
-      - key: DATABASE_URL
+      - key: postgres://butterfly_peak_user:V8BGsJdFp7uZMd0frmCogaPitOR5LD8E@dpg-cnt8h1779t8c73ac7umg-a/butterfly_peak
         fromDatabase:
-          name: bbcaredb
+          name: Butterfly peak
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
