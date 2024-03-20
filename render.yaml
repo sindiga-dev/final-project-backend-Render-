@@ -16,7 +16,7 @@ services:
         fromDatabase:
           name: Butterfly peak
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: 66cc5f9fba8dd9059ca4cb13564d1ff8
         sync: false
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
